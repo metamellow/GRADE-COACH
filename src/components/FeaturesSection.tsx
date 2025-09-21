@@ -49,12 +49,12 @@ const FeaturesSection = () => {
   ]
 
   return (
-    <section id="features" className="section-padding section-large-height bg-gray-50 pt-24">
+    <section id="features" className="section-padding section-large-height bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
@@ -75,7 +75,7 @@ const FeaturesSection = () => {
               key={feature.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
               viewport={{ once: true }}
               whileHover={{ y: -5, scale: 1.02 }}
               className="group cursor-pointer h-full"
@@ -115,7 +115,7 @@ const FeaturesSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           viewport={{ once: true }}
           className="text-center mt-16"
         >

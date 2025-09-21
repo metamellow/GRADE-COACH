@@ -28,7 +28,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 text-blue-700 text-sm font-semibold mb-8 shadow-sm backdrop-blur-sm"
           >
             <SparklesIcon className="w-4 h-4 mr-2" />
@@ -39,7 +39,7 @@ const HeroSection = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 leading-[0.9] tracking-tight"
           >
             Transform Any{' '}
@@ -56,7 +56,7 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
             className="text-xl sm:text-2xl lg:text-3xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
           >
             AI-powered grading and personalized feedback that saves teachers time while improving student outcomes
@@ -66,7 +66,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16"
           >
             <a 
@@ -91,7 +91,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
             className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12"
           >
             <div className="flex items-center group">

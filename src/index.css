@@ -64,8 +64,8 @@
   
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8;
-    padding-top: clamp(4rem, 8vh, 8rem);
-    padding-bottom: clamp(4rem, 8vh, 8rem);
+    padding-top: clamp(6rem, 12vh, 12rem);
+    padding-bottom: clamp(6rem, 12vh, 12rem);
   }
   
   .section-min-height {

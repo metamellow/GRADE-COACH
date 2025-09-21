@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { StarIcon, UserGroupIcon, ClockIcon, AcademicCapIcon } from '@heroicons/react/24/solid'
 
 const SocialProofSection = () => {
   const [hoursSaved, setHoursSaved] = useState(0)
   const [studentsHelped, setStudentsHelped] = useState(0)
   const [schoolsInterested, setSchoolsInterested] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const statsRef = useRef<HTMLDivElement>(null)
 
   const testimonials = [
     {
@@ -55,26 +57,49 @@ const SocialProofSection = () => {
     }
   ]
 
-  // Animate counters
+  // Animate counters only when section comes into view
   useEffect(() => {
-    const animateCounter = (setter: (value: number) => void, target: number, duration: 2000) => {
-      let start = 0
-      const increment = target / (duration / 16)
-      const timer = setInterval(() => {
-        start += increment
-        if (start >= target) {
-          setter(target)
-          clearInterval(timer)
-        } else {
-          setter(Math.floor(start))
-        }
-      }, 16)
+    if (hasAnimated) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true)
+            
+            const animateCounter = (setter: (value: number) => void, target: number, duration: 2000) => {
+              let start = 0
+              const increment = target / (duration / 16)
+              const timer = setInterval(() => {
+                start += increment
+                if (start >= target) {
+                  setter(target)
+                  clearInterval(timer)
+                } else {
+                  setter(Math.floor(start))
+                }
+              }, 16)
+            }
+
+            animateCounter(setHoursSaved, 2500, 2000)
+            animateCounter(setStudentsHelped, 15000, 2000)
+            animateCounter(setSchoolsInterested, 500, 2000)
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current)
     }
 
-    animateCounter(setHoursSaved, 2500, 2000)
-    animateCounter(setStudentsHelped, 15000, 2000)
-    animateCounter(setSchoolsInterested, 500, 2000)
-  }, [])
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current)
+      }
+    }
+  }, [hasAnimated])
 
   return (
     <section id="social-proof" className="section-padding section-standard-height bg-white">
@@ -83,7 +108,7 @@ const SocialProofSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
@@ -100,9 +125,10 @@ const SocialProofSection = () => {
 
         {/* Statistics */}
         <motion.div
+          ref={statsRef}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           viewport={{ once: true }}
           className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-20"
         >
@@ -111,7 +137,7 @@ const SocialProofSection = () => {
               key={stat.label}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 + index * 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.05, ease: "easeOut" }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5 }}
               className="text-center group cursor-pointer"
@@ -138,7 +164,7 @@ const SocialProofSection = () => {
               key={testimonial.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="group cursor-pointer"
@@ -182,7 +208,7 @@ const SocialProofSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
           viewport={{ once: true }}
           className="mt-16 text-center"
         >

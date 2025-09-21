@@ -2,13 +2,13 @@ import { motion } from 'framer-motion'
 
 const ProblemSolutionSection = () => {
   return (
-    <section id="problem-solution" className="section-padding section-standard-height bg-white pt-32">
+    <section id="problem-solution" className="section-padding section-standard-height bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -27,7 +27,7 @@ const ProblemSolutionSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           viewport={{ once: true }}
           className="relative"
         >
@@ -36,7 +36,7 @@ const ProblemSolutionSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
               className="flex flex-col items-center group cursor-pointer"
@@ -59,7 +59,7 @@ const ProblemSolutionSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
               className="flex flex-col items-center group cursor-pointer"
@@ -82,7 +82,7 @@ const ProblemSolutionSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
               className="flex flex-col items-center group cursor-pointer"

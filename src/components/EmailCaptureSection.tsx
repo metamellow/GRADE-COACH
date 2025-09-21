@@ -87,7 +87,7 @@ const EmailCaptureSection = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="mb-8"
           >
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
@@ -128,7 +128,7 @@ const EmailCaptureSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
           className="mb-16"
         >
@@ -147,7 +147,7 @@ const EmailCaptureSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           viewport={{ once: true }}
           className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 shadow-2xl border border-white/20"
         >
@@ -242,7 +242,7 @@ const EmailCaptureSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           viewport={{ once: true }}
           className="mt-12 grid md:grid-cols-3 gap-6"
         >
