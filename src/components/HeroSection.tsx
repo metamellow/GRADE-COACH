@@ -3,11 +3,11 @@ import { ArrowRightIcon, SparklesIcon } from '@heroicons/react/24/outline'
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative section-min-height overflow-hidden pt-16">
-      {/* Modern gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50" />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Clean gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50" />
       
-      {/* Animated background elements */}
+      {/* Cool animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl float-slow" />
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full blur-3xl float-fast" style={{ animationDelay: '2s' }} />
@@ -22,7 +22,8 @@ const HeroSection = () => {
         }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
+      {/* Main content container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
         <div className="text-center">
           {/* Badge */}
           <motion.div
@@ -39,7 +40,7 @@ const HeroSection = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 leading-[0.9] tracking-tight"
           >
             Transform Any{' '}
@@ -56,7 +57,7 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-xl sm:text-2xl lg:text-3xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
           >
             AI-powered grading and personalized feedback that saves teachers time while improving student outcomes
@@ -66,7 +67,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16"
           >
             <a 
@@ -87,26 +88,6 @@ const HeroSection = () => {
             </a>
           </motion.div>
 
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12"
-          >
-            <div className="flex items-center group">
-              <div className="w-3 h-3 bg-green-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"></div>
-              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors">Trusted by 500+ Schools</span>
-            </div>
-            <div className="flex items-center group">
-              <div className="w-3 h-3 bg-blue-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"></div>
-              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors">2,500+ Hours Saved</span>
-            </div>
-            <div className="flex items-center group">
-              <div className="w-3 h-3 bg-purple-500 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"></div>
-              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900 transition-colors">15,000+ Students Helped</span>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

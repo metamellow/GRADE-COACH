@@ -28,13 +28,9 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-primary-50 to-white">
         <Header />
         <HeroSection />
-        <div className="py-8"></div>
         <ProblemSolutionSection />
-        <div className="py-8"></div>
         <FeaturesSection />
-        <div className="py-8"></div>
         <SocialProofSection />
-        <div className="py-8"></div>
         <EmailCaptureSection />
         <Footer />
       </div>

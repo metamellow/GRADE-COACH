@@ -31,43 +31,24 @@ const EmailCaptureSection = () => {
     setIsSubmitting(true)
     
     try {
-      const apiKey = import.meta.env.VITE_CONVERTKIT_API_KEY
-      
-      if (!apiKey) {
-        // Fallback for development - just log the data
-        console.log('ConvertKit API key not configured. Form data:', data)
-        await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate API call
-        toast.success('Successfully joined the waitlist! (Demo mode)')
-        setIsSubmitted(true)
-        reset()
-        return
-      }
-
-      const response = await fetch('https://api.convertkit.com/v4/subscribers', {
+      // Call our serverless function instead of direct API call
+      const response = await fetch('/.netlify/functions/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Kit-Api-Key': apiKey,
         },
         body: JSON.stringify({
-          email_address: data.email,
-          first_name: data.role, // Using role as first name for now
-          fields: {
-            'Role': data.role,
-            'School': data.school,
-            'Source': 'Grade.Coach Landing Page'
-          }
+          email: data.email,
+          role: data.role,
+          school: data.school
         })
       })
 
-      if (!response.ok) {
-        const errorData = await response.json()
-        console.error('ConvertKit API Error:', errorData)
-        throw new Error(`Failed to subscribe to waitlist: ${errorData.errors?.[0] || 'Unknown error'}`)
-      }
-
       const result = await response.json()
-      console.log('ConvertKit response:', result)
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to subscribe to waitlist')
+      }
       
       toast.success('Successfully joined the waitlist!')
       setIsSubmitted(true)
